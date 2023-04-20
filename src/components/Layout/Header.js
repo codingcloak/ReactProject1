@@ -4,12 +4,12 @@ import Background from "../../assests/Background.jpg";
 import Headerclass from './Header.module.css'
 import HeaderCartButton from "./HeaderCartButton";
 
-function Header() {
+const Header = (props) => {
   return (
     <>
       <header className={Headerclass.header}>
         <h1>OrderIT</h1>
-        <HeaderCartButton/>
+        <HeaderCartButton onClick={props.onShowCart}/>
       </header>
       <div className={Headerclass['main-image']}>
         <img src={Background} alt="Background" />

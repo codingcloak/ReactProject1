@@ -1,13 +1,32 @@
-// import Header from "./components/Layout/Header.js";
-import React from "react";
+
+import React, { useState } from "react";
+
+import Meals from "./components/Meals/Meals.js";
+import Cart from "./components/Cart/Cart.js";
 import Header from "./components/Layout/Header.js";
+import CartProvider from "./store/CartProvider.js";
+
 
 
 function App() {
+  const [cartIsShown, setCartIsShown] = useState(false);
+
+  const showCartHandler = () =>{
+    setCartIsShown(true);
+  }
+
+  const hideCartHandler = () =>{
+    setCartIsShown(false);
+  }
+
   return (
-    <div >
-      <Header/>
-    </div>
+    <CartProvider >
+    {cartIsShown && <Cart onClose={hideCartHandler}/>}
+      <Header onShowCart = {showCartHandler} />
+      <main>
+        <Meals />
+      </main>
+    </CartProvider>
      
   );
 }
