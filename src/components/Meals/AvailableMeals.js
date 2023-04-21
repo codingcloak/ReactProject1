@@ -33,13 +33,16 @@ const DUMMY_MEALS = [
 const AvailableMeals = () => {
   const mealsList = DUMMY_MEALS.map((meal) => (
     <MealItem
-      id={meal.id}
+      id={meal.id} 
       key={meal.id}
       name={meal.name}
       description={meal.description}
       price={meal.price}
     />
   ));
+
+  console.log(AvailableMeals)
+  console.log(mealsList)
   return (
     <div className={classes.meals}>
       <Card>
